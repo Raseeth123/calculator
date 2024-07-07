@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(24, 24, 24);
+        }
+
+
+        .cot{
+            background-color: rgb(40, 39, 39);
+            margin: 150px auto;
+            width:280px;
+            height: auto;
+            border-radius:10px;
+            padding: 20px;
+        }
+
+        .user{
+            text-align: center;
+            height: 40px;
+            background-color: black;
+            width: 100%;
+            border: none;
+            font-size: 22px;
+            font-weight: bold;
+            overflow: hidden;
+            color: white;
+            border-radius: 6px;
+        }
+
+
+        .cot2{
+            margin: 10px;
+            display: flex;
+            justify-content:space-between;
+            flex-wrap: wrap;
+        }
+
+
+        button{
+            border-radius: 100%;
+            padding: 15px;
+            width:55px;
+            margin: 5px;
+            font-weight: bold;
+            font-size: 19px;
+            border:none;
+            background-color: rgb(7, 7, 7);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .operatorbtn{
+            background-color: rgb(253, 45, 3);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cot">
+        <input id="userinput" class="user" readonly>
+        <div class="cot2">
+          <button onclick="appenddisplay('+')" class="operatorbtn">+</button>
+          <button onclick="appenddisplay(7)">7</button>
+          <button onclick="appenddisplay(8)">8</button>
+          <button onclick="appenddisplay(9)">9</button>
+          <button onclick="appenddisplay('-')" class="operatorbtn">-</button>
+          <button onclick="appenddisplay(4)">4</button>
+          <button onclick="appenddisplay(5)">5</button>
+          <button onclick="appenddisplay(6)">6</button>
+          <button onclick="appenddisplay('*')" class="operatorbtn">*</button>
+          <button onclick="appenddisplay(1)">1</button>
+          <button onclick="appenddisplay(2)">2</button>
+          <button onclick="appenddisplay(3)">3</button>
+          <button onclick="appenddisplay('/')" class="operatorbtn">/</button>
+          <button onclick="appenddisplay(0)">0</button>
+          <button onclick="appenddisplay('.')">.</button>
+          <button onclick="calculate()">=</button>
+          <button onclick="clearscreen()" class="operatorbtn">C</button>
+        </div>
+  </div>
+  <script>
+    let screen=document.getElementById("userinput")
+        function appenddisplay(val){
+        if(screen.value==="ERROR") clearscreen()
+        else screen.value+=val
+        }
+
+
+        function calculate(){
+        try{
+            if(eval(screen.value)=="Infinity"){
+                throw new Error("error")
+            }
+            else screen.value=eval(screen.value)
+        }
+        catch(error){
+            screen.value=`ERROR`
+        }
+        }
+
+
+        function clearscreen(){
+            screen.value=""
+        }
+
+
+  </script>
+</body>
+</html>
